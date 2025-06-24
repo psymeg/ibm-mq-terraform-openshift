@@ -1,0 +1,34 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: my-qmgr
+  namespace: mq-project
+spec:
+  license:
+    accept: true
+    license: L-RJON-C2S65N
+    use: Production
+  queueManager:
+    name: MYQMGR
+    resources:
+      limits:
+        cpu: "1"
+        memory: "1Gi"
+      requests:
+        cpu: "500m"
+        memory: "512Mi"
+  storage:
+    defaultClass: managed-nfs-storage
+    queueManager:
+      type: persistent-claim
+      size: 1Gi
+  template:
+    pod:
+      containers:
+        - name: qmgr
+          env:
+            - name: MQ_APP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mq-secret
+                  key: appPassword
