@@ -1,7 +1,7 @@
 variable "kubeconfig_path" {
   description = "Path to your kubeconfig"
   type        = string
-  default     = "~/.kube/config"
+  default     = "~/.kube/remote-cluster.conf"
 }
 
 variable "namespace" {
