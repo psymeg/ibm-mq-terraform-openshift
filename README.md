@@ -2,6 +2,8 @@
 
 This Terraform project deploys an IBM MQ QueueManager on OpenShift using the IBM MQ Operator.
 
+Some code chatgpt generated. This is a self development project and may not be secure to run in production. YMMV!
+
 ## Prerequisites
 
 - OpenShift cluster (with access to kubeconfig)
